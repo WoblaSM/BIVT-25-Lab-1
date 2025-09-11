@@ -1,22 +1,29 @@
-﻿namespace Lab1
+using System.ComponentModel.Design.Serialization;
+using System.Xml;
+using System.Xml.Linq;
+
+namespace Lab1
 {
     public class Blue
     {
         public bool Task1(int a, int b)
         {
             bool answer = false;
-
             // code here
+            if (a > 0 && b > 0) answer = true;
+            else if (a < 0 && b < 0) answer = true;
+                // end
 
-            // end
-
-            return answer;
+                return answer;
         }
         public bool Task2(double d)
         {
             bool answer = false;
 
             // code here
+            int d2 = Convert.ToInt32(d);
+            if (d2 != d) answer = true;
+            Console.WriteLine(d + "\n" + d2);
 
             // end
 
@@ -27,7 +34,9 @@
             bool answer = false;
 
             // code here
-
+            if (b == 0) return answer;
+            double c = a / b;
+            if ((c * b) == a) answer = true;
             // end
 
             return answer;
@@ -37,6 +46,15 @@
             double answer = 0;
 
             // code here
+            double dM = System.Math.Abs(d);
+            double fM = System.Math.Abs(f);
+            double gM = System.Math.Abs(g);
+            List<double> listM = new List<double> { dM, fM, gM };
+            List<double> list = new List<double> { d, f, g };
+
+            //Console.WriteLine(listM.IndexOf(listM.Max()));
+            answer = list[listM.IndexOf(listM.Max())];
+            
 
             // end
 
@@ -47,7 +65,9 @@
             double answer = 0;
 
             // code here
-
+            if (x <= -1) answer = 0;
+            if (x > -1 && x <= 0) answer = (x + 1);
+            if (x > 0) answer = 1;
             // end
 
             return answer;
@@ -57,7 +77,8 @@
             bool answer = false;
 
             // code here
-
+            double D = (System.Math.Sqrt(circleS / 3.14))*2;
+            if (System.Math.Sqrt(squareS) >= D) answer = true;
             // end
 
             return answer;
@@ -68,6 +89,14 @@
             int answer = 0;
 
             // code here
+            if (System.Math.Abs(d) < System.Math.Abs(f))
+            {
+                if (d > 0) answer = -1;
+            }
+            else
+            {
+                if (f > 0) answer = 1;
+            }
 
             // end
 
