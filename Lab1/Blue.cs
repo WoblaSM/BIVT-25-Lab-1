@@ -1,4 +1,5 @@
 using System.ComponentModel.Design.Serialization;
+using System.Numerics;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -107,7 +108,20 @@ namespace Lab1
             bool answer = false;
 
             // code here
-            
+            //Console.WriteLine(a);
+            //Console.WriteLine(b);
+            //Console.WriteLine(c);
+            //Console.WriteLine(ans);
+
+            int mx = (a/2 + b/2 + c/2);
+            List <int> lx = new List<int> { a, b, c };
+            int m3 = Convert.ToInt32((mx / 3));
+            if (m3 <= lx.Min())
+            {
+                if (mx % 3 != 1) answer = true;
+            }
+            if (mx < 2) answer = false;
+            //Console.WriteLine(answer);
             // end
 
             return answer;
