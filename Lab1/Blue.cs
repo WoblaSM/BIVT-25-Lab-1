@@ -1,130 +1,106 @@
-using System.ComponentModel.Design.Serialization;
-using System.Numerics;
-using System.Xml;
-using System.Xml.Linq;
+using System.IO.IsolatedStorage;
+using System.Security.Cryptography;
 
-namespace Lab1
+namespace Lab3
 {
     public class Blue
     {
-        public bool Task1(int a, int b)
+        public double Task1(int n, int glass, int norma)
         {
-            bool answer = false;
-            // code here
-            if (a > 0 && b > 0) answer = true;
-            else if (a < 0 && b < 0) answer = true;
-                // end
-
-                return answer;
-        }
-        public bool Task2(double d)
-        {
-            bool answer = false;
+            double milk = 0;
 
             // code here
-            int d2 = Convert.ToInt32(d);
-            if (d2 != d) answer = true;
-            Console.WriteLine(d + "\n" + d2);
-
-            // end
-
-            return answer;
-        }
-        public bool Task3(int a, int b)
-        {
-            bool answer = false;
-
-            // code here
-            if (b == 0) return answer;
-            double c = a / b;
-            if ((c * b) == a) answer = true;
-            // end
-
-            return answer;
-        }
-        public double Task4(double d, double f, double g)
-        {
-            double answer = 0;
-
-            // code here
-            double dM = System.Math.Abs(d);
-            double fM = System.Math.Abs(f);
-            double gM = System.Math.Abs(g);
-            List<double> listM = new List<double> { dM, fM, gM };
-            List<double> list = new List<double> { d, f, g };
-
-            //Console.WriteLine(listM.IndexOf(listM.Max()));
-            answer = list[listM.IndexOf(listM.Max())];
-            
-
-            // end
-
-            return answer;
-        }
-        public double Task5(double x)
-        {
-            double answer = 0;
-
-            // code here
-            if (x <= -1) answer = 0;
-            if (x > -1 && x <= 0) answer = (x + 1);
-            if (x > 0) answer = 1;
-            // end
-
-            return answer;
-        }
-        public bool Task6(double circleS, double squareS)
-        {
-            bool answer = false;
-
-            // code here
-            double D = (System.Math.Sqrt(circleS / 3.14))*2;
-            if (System.Math.Sqrt(squareS) >= D) answer = true;
-            // end
-
-            return answer;
-        }
-
-        public double Task7(double d, double f)
-        {
-            int answer = 0;
-
-            // code here
-            if (System.Math.Abs(d) < System.Math.Abs(f))
+            for (int i = 0; i != n; i++)
             {
-                if (d > 0) answer = -1;
-            }
-            else
-            {
-                if (f > 0) answer = 1;
-            }
+                Console.Write("вес ученика: ");
+                double wes = Convert.ToDouble(Console.ReadLine());
+                if (wes < norma)
+                {
+                    milk += glass;
+                }
 
+            }
+            milk = milk / 1000;
             // end
 
-            return answer;
+            return milk;
         }
-        public bool Task8(int a, int b, int c)
+        public (int first, int second, int third, int fourth) Task2(int n)
         {
-            bool answer = false;
+            int first = 0, second = 0, third = 0, fourth = 0;
+            int s1 = first;
+            int s2 = second;
+            int s3 = third;
+            int s4 = fourth;
 
             // code here
-            //Console.WriteLine(a);
-            //Console.WriteLine(b);
-            //Console.WriteLine(c);
-            //Console.WriteLine(ans);
-
-            int mx = (a/2 + b/2 + c/2);
-            List <int> lx = new List<int> { a, b, c };
-            int m3 = Convert.ToInt32((mx / 3));
-            if (m3 <= lx.Min())
+            for (int i = 0; i != n; i++)
             {
-                if (mx % 3 != 1) answer = true;
+                Console.WriteLine("x = ");
+                int x = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("y = ");
+                int y = Convert.ToInt32(Console.ReadLine());
+                if (x > 0 & y > 0) s1 += 1;
+                if (x < 0 & y < 0) s2 += 1;
+                if (x < 0 & y > 0) s3 += 1;
+                if (x > 0 & y < 0) s4 += 1;
+                
+
             }
-            if (mx < 2) answer = false;
-            //Console.WriteLine(answer);
+            Console.WriteLine("1-й = " + s1);
+            Console.WriteLine("2-й = " + s3);
+            Console.WriteLine("3-й = " + s2);
+            Console.WriteLine("4-й = " + s4);
+            first = s1;
+            second = s2;
+            third = s3;
+            fourth = s4;
+
             // end
 
-            return answer;
+            return (first, second, third, fourth);
+        }
+        public int Task3(int n)
+        {
+            int count = 0;
+            // code here
+
+            for (int i = 0; i != n; i++)
+            {
+                bool fl = true;
+                Console.Write("Оценки: (через пробел) = ");
+                string[] Marks = Console.ReadLine().Split();
+                foreach (string s in Marks)
+
+                {
+                    if (Convert.ToInt32(s) < 4) fl = false;
+                    break;
+                }
+                if (fl) { count++; }
+
+            }
+            // end
+
+            return count;
+        }
+        public (int tasks, int serias) Task4(int time, int tasks)
+        {
+            int serias = 0;
+
+            // code here
+
+            // end
+
+            return (tasks, serias);
+        }
+        public (int power, int agility, int intellect) Task5(int power, int agility, int intellect, int number)
+        {
+
+            // code here
+
+            // end
+
+            return (power, agility, intellect);
         }
     }
 }
